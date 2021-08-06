@@ -1,15 +1,3 @@
-
-
-
-
-
-
-
-let test = document.querySelector("h1");
-test.addEventListener("click", function(){
-        test.innerHTML = "djksfhjsk";
-})
-
 function fetchPokemonBase(){
 
         fetch("http://localhost:3000/api/teddies")
@@ -43,7 +31,7 @@ function fetchPokemonBase(){
                                         if(o == 1){
                                                 let img2Selector = document.querySelector(`div.ours${i} > div.a1`);
                                                 let img2 = allOursons[i].imageUrl;
-                                                img2Selector.innerHTML = `<div class="image" style="background-image:url(${img2})"><img src="${img2}">`
+                                                img2Selector.innerHTML = `<div class="image" style="background-image:url(${img2})"><img src="${img2}" alt="image du produit (ourson)">`
                                         }
 
                                         if(o == 2){
