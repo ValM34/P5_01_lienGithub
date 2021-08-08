@@ -41,7 +41,6 @@ function fetchPokemonBase(){
                 let containerDiv = document.querySelector("div.pageProduit");
                 containerDiv.appendChild(createForm);
                 let selectForm = document.querySelector("select");
-                // selectForm.appendChild(createDiv);
                 for(o = 0; o < Oursons.colors.length; o++){
                     let createDiv = document.createElement(`option`);
                     selectForm.appendChild(createDiv);
@@ -49,8 +48,47 @@ function fetchPokemonBase(){
                     selectDiv.classList.add(`c${o}`);
                     selectDiv.textContent= `${Oursons.colors[o]}`;
                 }
-                console.log(Oursons.colors);
 
+                let createDivQuantity = document.createElement("div");
+                containerDiv.appendChild(createDivQuantity);
+                let selectDivQuantity = document.querySelector("div.pageProduit > div:nth-child(6)")
+                selectDivQuantity.classList.add("quantity")
+                let createButton = document.createElement("button");
+                let createButton2 = document.createElement("button");
+                let createInput = document.createElement("input");
+                let InputNumber = 1;
+                createInput.value = `1`;
+                selectDivQuantity.appendChild(createButton);
+                selectDivQuantity.appendChild(createInput);
+                selectDivQuantity.appendChild(createButton2);
+                let selectButtonQuantity1 = document.querySelector("div.quantity > button:nth-child(1)");
+                let selectInputQuantity = document.querySelector("div.quantity > input");
+                let selectButtonQuantity2 = document.querySelector("div.quantity > button:nth-child(3)");
+                selectButtonQuantity1.textContent = "-";
+                selectButtonQuantity2.textContent = "+";
+                selectButtonQuantity1.addEventListener("click", function(e){
+                    e.stopPropagation();
+                    if(InputNumber > 1){
+                        selectInputQuantity.value = `${--InputNumber}`
+                    }
+                })
+                selectButtonQuantity2.addEventListener("click", function(e){
+                    e.stopPropagation();
+                    selectInputQuantity.value = `${++InputNumber}`
+                })
+                selectInputQuantity.addEventListener("input", function(e){
+                    e.stopPropagation();
+                    if(e.target.value >= 0){
+                        InputNumber = e.target.value;
+                    } else{
+                        InputNumber = 0;
+                    }
+                })
+                let createButtonValider = document.createElement("button");
+                containerDiv.appendChild(createButtonValider);
+                let selectButtonValider = document.querySelector("div.pageProduit > button:nth-child(7)");
+                selectButtonValider.classList.add("ButtonValider");
+                selectButtonValider.textContent = "Ajouter au panier";
     })
 }
 fetchPokemonBase();
