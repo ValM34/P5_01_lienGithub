@@ -8,35 +8,48 @@ function fetchPokemonBase(){
             .then((Oursons) => {
                 console.log(Oursons);
 
-                for (let i = 0; i < 4; i++){
-                    let createDiv = document.createElement(`div`);
-                    let containerDiv = document.querySelector("div.pageProduit");
-                    containerDiv.appendChild(createDiv);
-                    let selectDiv = document.querySelector(`div.pageProduit > div:nth-child(${i + 1})`);
-                    selectDiv.classList.add(`b${i}`);
 
-                    if(i == 0){
-                        let name = document.querySelector("div.b0");
-                        name.textContent = `${Oursons.name}`;
-                    }
+                // Création des div nameProduct, imgProduct, descriptionProduct, priceProduct
+                let selectContainerDiv = document.querySelector("div.pageProduit");
 
-                    if(i == 1){
-                        let image = document.querySelector("div.b1");
-                        image.innerHTML = `<div class="imageProduct" style="background-image:url(${Oursons.imageUrl})"><img src="${Oursons.imageUrl}" alt="image du produit (ourson)">`;
-                    }
+                // Création div nameProduct
+                let createDivNameProduct = document.createElement(`div`);
+                selectContainerDiv.appendChild(createDivNameProduct);
+                let selectDivNameProduct = document.querySelector(`div.pageProduit > div:nth-child(1)`);
+                selectDivNameProduct.classList.add(`nameProduct`);
 
-                    if(i == 2){
-                        let description = document.querySelector("div.b2");
-                        description.textContent = `${Oursons.description}`;
-                    }
+                let nameProduct = document.querySelector("div.nameProduct");
+                nameProduct.textContent = `${Oursons.name}`;
 
-                    if(i == 3){
-                        let price = document.querySelector("div.b3");
-                        price.textContent = `${Oursons.price / 100}€`;
-                    }
+                // Création div imgProduct
+                let createDivImgProduct = document.createElement(`div`);
+                selectContainerDiv.appendChild(createDivImgProduct);
+                let selectDivImgProduct = document.querySelector(`div.pageProduit > div:nth-child(2)`);
+                selectDivImgProduct.classList.add(`imgProduct`);
 
-                }
+                let imgProduct = document.querySelector("div.imgProduct");
+                imgProduct.innerHTML = `<div class="imageProduct" style="background-image:url(${Oursons.imageUrl})"><img src="${Oursons.imageUrl}" alt="image du produit (ourson)">`;
 
+                // Création div descriptionProduct
+                let createDivDescriptionProduct = document.createElement(`div`);
+                selectContainerDiv.appendChild(createDivDescriptionProduct);
+                let selectDivDescriptionProduct = document.querySelector(`div.pageProduit > div:nth-child(3)`);
+                selectDivDescriptionProduct.classList.add(`descriptionProduct`);
+
+                let descriptionProduct = document.querySelector("div.descriptionProduct");
+                descriptionProduct.textContent = `${Oursons.description}`;
+
+                // Création div priceProduct
+                let createDivPriceProduct = document.createElement(`div`);
+                selectContainerDiv.appendChild(createDivPriceProduct);
+                let selectDivPriceProduct = document.querySelector(`div.pageProduit > div:nth-child(4)`);
+                selectDivPriceProduct.classList.add(`priceProduct`);
+
+                let priceProduct = document.querySelector("div.priceProduct");
+                priceProduct.textContent = `${Oursons.price / 100}€`;
+                // Fin création des div nameProduct, imgProduct, descriptionProduct, priceProduct
+
+                
                 let createForm = document.createElement("select");
                 let containerDiv = document.querySelector("div.pageProduit");
                 containerDiv.appendChild(createForm);
@@ -88,7 +101,7 @@ function fetchPokemonBase(){
                 containerDiv.appendChild(createButtonValider);
                 let selectButtonValider = document.querySelector("div.pageProduit > button:nth-child(7)");
                 selectButtonValider.classList.add("ButtonValider");
-                selectButtonValider.textContent = "Ajouter au panier";
+                selectButtonValider.textContent = "Ajouter au panier"; 
     })
 }
 fetchPokemonBase();

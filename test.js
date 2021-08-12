@@ -5,6 +5,7 @@ function fetchPokemonBase(){
                 .then((allOursons) => {
                         console.log(allOursons);
 
+                        // Création d'une balise <a> pour chaque ourson
                         for (let i = 0; i < allOursons.length; i++){
                                 const newElt = document.createElement("a");
                                 newElt.title = "Voir le nounours";  
@@ -15,43 +16,53 @@ function fetchPokemonBase(){
 
                                 let test4 = document.querySelector(`div.test > a:nth-child(${i + 1})`)
                                 test4.classList.add(`ours${i}`);
+                        // Fin création d'une balise <a> pour chaque ourson
+                                
+                                // Intégration du contenu (nom, image, description, prix) pour chaque ourson
+                                let selectOurs = document.querySelector(`a.ours${i}`);
 
-                                for (let o = 0; o < 4; o++){
-                                        let newElt2 = document.createElement(`div`);
+                                // Création div name
+                                let newDivName = document.createElement("div");
+                                selectOurs.appendChild(newDivName);
+                                let selectChildName = document.querySelector(`div.test > a.ours${i} > div:nth-child(1)`);
+                                selectChildName.classList.add(`name`);
+                                
+                                let nameSelector = document.querySelector(`a.ours${i} > div.name`);
+                                let name = allOursons[i].name;
+                                nameSelector.innerHTML = `<b>${name}</b>`
 
-                                        let selectOurs = document.querySelector(`a.ours${i}`);
-                                        selectOurs.appendChild(newElt2);
-                                        let selectChildDiv = document.querySelector(`div.test > a.ours${i} > div:nth-child(${o + 1})`);
-                                        selectChildDiv.classList.add(`a${o}`);
+                                
+                                // Création div img2
+                                let newDivImg = document.createElement("div");
+                                selectOurs.appendChild(newDivImg);
+                                let selectChildImg = document.querySelector(`div.test > a.ours${i} > div:nth-child(2)`);
+                                selectChildImg.classList.add(`img2`);
+                                
+                                let img2Selector = document.querySelector(`a.ours${i} > div.img2`);
+                                let img2 = allOursons[i].imageUrl;
+                                img2Selector.innerHTML = `<div class="image" style="background-image:url(${img2})"><img src="${img2}" alt="image du produit (ourson)">`
 
+                                // Création div description
+                                let newDivDescription = document.createElement("div");
+                                selectOurs.appendChild(newDivDescription);
+                                let selectChildDescription = document.querySelector(`div.test > a.ours${i} > div:nth-child(3)`);
+                                selectChildDescription.classList.add(`description`);
+                                
+                                let descriptionSelector = document.querySelector(`a.ours${i} > div.description`);
+                                let description = allOursons[i].description;
+                                descriptionSelector.innerHTML = `<p>${description}</p>`
 
-                                        if(o == 0){
-                                                let name2Selector = document.querySelector(`a.ours${i} > div.a0`);
-                                                let name2 = allOursons[i].name;
-                                                name2Selector.innerHTML = `<b>${name2}</b>`
-                                        }
-                                        
-                                        if(o == 1){
-                                                let img2Selector = document.querySelector(`a.ours${i} > div.a1`);
-                                                let img2 = allOursons[i].imageUrl;
-                                                img2Selector.innerHTML = `<div class="image" style="background-image:url(${img2})"><img src="${img2}" alt="image du produit (ourson)">`
-                                        }
+                                // Création div price
+                                let newDivPrice = document.createElement("div");
+                                selectOurs.appendChild(newDivPrice);
+                                let selectChildPrice = document.querySelector(`div.test > a.ours${i} > div:nth-child(4)`);
+                                selectChildPrice.classList.add(`price`);
+                                
+                                let priceSelector = document.querySelector(`a.ours${i} > div.price`);
+                                let price = allOursons[i].price;
+                                priceSelector.innerHTML = `${price / 100}€`
+                                // Fin intégration du contenu (nom, image, description, prix) pour chaque ourson
 
-                                        if(o == 2){
-                                                let description2Selector = document.querySelector(`a.ours${i} > div.a2`);
-                                                let description2 = allOursons[i].description;
-                                                description2Selector.innerHTML = `<p>${description2}</p>`
-                                        }
-
-                                        if(o == 3){
-                                                let price2Selector = document.querySelector(`a.ours${i} > div.a3`);
-                                                let price2 = allOursons[i].price;
-                                                price2Selector.textContent = `${price2 / 100}€`
-                                        }
-
-                                        
-
-                                }
 
 }
                 

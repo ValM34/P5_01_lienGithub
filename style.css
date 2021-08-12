@@ -1,11 +1,11 @@
 *{
     font-family:Arial, Helvetica, sans-serif;
-    color: #322514;
+    color: #251623;
 }
 
 body{
     margin: 0px;
-    background-color: #ede2ec;
+    background-color: #f2e9f1;
 }
 
 h1{
@@ -31,7 +31,7 @@ a.lienPanier{
     align-items: flex-end;
     padding-right: 20px;
     text-decoration: none;
-    color: #322514;
+    color: #251623;
 }
 
 .image {
@@ -68,26 +68,26 @@ img {
     margin: 10px;
     padding: 20px;
     border-radius: 10px;
-    box-shadow: 0px 0px 5px #be1558;
+    box-shadow: 0px 0px 5px #efa14d;
     height: 400px;
-    background-color: #e75874;
+    background-color: #e08525;
 }
 .test > a:hover{
-    box-shadow: 0px 0px 10px #be1558;
+    box-shadow: 0px 0px 10px #efa14d;
 }
 
 div.test a{
     text-decoration: none;
 }
 
-.a0{
+.name{
     display: flex;
     justify-content: center;
     font-weight: bold;
     font-size: 16px;
 }
 
-.a1{
+.img2{
     width: 100%;
     height: 290px;
     display: flex;
@@ -95,7 +95,7 @@ div.test a{
 }
 
 
-.a2{
+.description{
     font-style: italic;
 }
 
@@ -109,18 +109,18 @@ div.test a{
     margin: 10px;
     padding: 20px;
     border-radius: 10px;
-    box-shadow: 0px 0px 5px #be1558;
+    box-shadow: 0px 0px 5px #efa452;
     height: 580px;
-    background-color: #e75874;
+    background-color: #e08525;
 }
 
-.b0{
+.nameProduct{
     text-align: center;
     font-weight: bold;
     font-size: 16px;
     padding-bottom: 10px;
 }
-.b2{
+.descriptionProduct{
     font-style: italic;
     padding-top: 10px;
     padding-bottom: 10px;
@@ -161,7 +161,7 @@ button.ButtonValider{
     padding: 15px 0 15px 0;
     border-radius: 15px;
     border: none;
-    background-color: #322514;
-    color: #e75874;
+    background-color: #251623;
+    color: #e08525;
     font-size: 25px;
 }
