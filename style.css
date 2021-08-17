@@ -165,3 +165,76 @@ button.ButtonValider{
     color: #e08525;
     font-size: 25px;
 }
+
+/* Page panier */
+.sectionPanier{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+.divProduitPanier{
+    background-color: #f1c392;
+    height: 30px;
+    width: 90%;
+    position: relative;
+    margin-top: 10px;
+    border-radius: 5px;
+    display: grid;
+    grid-template-columns: 25% 25% 25% 25%;
+    justify-content: space-between;
+}
+.divProduitPanier > div{
+    display:flex;
+    align-items: center;
+}
+.sectionPanier > div{
+    padding-left: 5px;
+}
+.divProduitPanier > div > b{
+    margin-right: 5px;
+}
+form{
+    position: relative;
+    left: 5%;
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+    border: solid #efa452 2px;
+    border-radius: 5px;
+    padding-top: 5px;
+    margin-bottom: 50px;
+    width: 90%;
+}
+form > div > div{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    width: 600px;
+}
+form > div{
+    display: flex;
+    justify-content: center;
+    width: 90%;
+}
+input{
+    padding: 10px;
+    border-radius: 5px;
+    border: 1px solid #e08525;
+    width: 80%;
+    margin-bottom: 20px;
+}
+label{
+    margin-bottom: 5px;
+    font-weight: bold;
+}
+.prixTotal{
+    text-align: center;
+    position: relative;
+    left: 5%;
+    width: 90%;
+    padding: 5px 0 5px 0;
+    margin-top: 10px;
+    font-weight: bold;
+    font-size: 16px;
+    background-color: #efa452;
+}

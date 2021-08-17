@@ -54,6 +54,7 @@ function fetchPokemonBase(){
                 let containerDiv = document.querySelector("div.pageProduit");
                 containerDiv.appendChild(createForm);
                 let selectForm = document.querySelector("select");
+
                 for(o = 0; o < Oursons.colors.length; o++){
                     let createDiv = document.createElement(`option`);
                     selectForm.appendChild(createDiv);
@@ -102,6 +103,52 @@ function fetchPokemonBase(){
                 let selectButtonValider = document.querySelector("div.pageProduit > button:nth-child(7)");
                 selectButtonValider.classList.add("ButtonValider");
                 selectButtonValider.textContent = "Ajouter au panier"; 
+
+
+                couleurSelectionnee = Oursons.colors[0];
+                selectForm.addEventListener("change", function(e){
+                    e.preventDefault;
+                    couleurSelectionnee = e.target.value;
+                })
+                
+                selectButtonValider.addEventListener("click", function(e){
+                    e.preventDefault;
+                    // TEST 
+                let optionsProduit = {
+                    nomProduit: Oursons.name,
+                    idProduit: Oursons._id,
+                    price: `${Oursons.price}€`,
+                    color: couleurSelectionnee,
+                    quantity: InputNumber,
+                };
+                console.log(optionsProduit);
+                // Local storage
+
+                // Déclaration variable ProduitLocalStorage
+
+                let produitLocalStorage = JSON.parse(localStorage.getItem("produit"));
+
+                console.log(produitLocalStorage);
+
+                // S'il y a déjà des produits enregistrés dans le local storage
+                if(produitLocalStorage){
+                    produitLocalStorage.push(optionsProduit);
+                    localStorage.setItem("produit", JSON.stringify(produitLocalStorage));
+
+                    console.log(produitLocalStorage);
+                }
+                // S'il n'y a pas déjà des produits enregistrés dans le local storage
+                else{
+                    produitLocalStorage = [];
+                    produitLocalStorage.push(optionsProduit);
+                    localStorage.setItem("produit", JSON.stringify(produitLocalStorage));
+
+                    console.log(produitLocalStorage);
+                }
+                })
+
+                
+
     })
 }
 fetchPokemonBase();
