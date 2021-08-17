@@ -8,7 +8,7 @@
                 let produitLocalStorage = JSON.parse(localStorage.getItem("produit"));
 
                 console.log(produitLocalStorage);
-                
+                if(produitLocalStorage){
                 let selectSection = document.querySelector("section.sectionPanier");
                 let prixTotal = 0;
                 for(let i = 0; i < produitLocalStorage.length; i++){
@@ -65,30 +65,32 @@
                 let city = document.getElementById("city");
                 let email = document.getElementById("email");
 
-                let products = ["5beaabe91c9d440000a57d96"];
-                // Test création de l'objet contact
-                const command = {
-                        contact: {
-                        firstName: firstName.value,
-                        lastName: lastName.value,
-                        address: address.value,
-                        city: city.value,
-                        email: email.value
-                    },
-                    products: products
-                }
-                console.log(command);
-                // Ca n'a pas l'air d'avoir marché, à retirer surement
+                let products = [];
+                for(let i = 0; i < produitLocalStorage.length; i++){
 
+                    products.push(produitLocalStorage[i].idProduit);
+
+                }
+                console.log(products);
                 // Action quand on clique sur "Envoyer"
                 let selectButtonSubmit = document.getElementById("submit");
                 selectButtonSubmit.addEventListener("click", function(e){
                     e.preventDefault;
-
                     
 
-                    
 
+                // Test création de l'objet command, qui doit être déclaré dans l'eventListener
+                const command = {
+                    contact: {
+                    firstName: firstName.value,
+                    lastName: lastName.value,
+                    address: address.value,
+                    city: city.value,
+                    email: email.value
+                },
+                products: products
+                }
+                
 
                     // Vérification du formulaire
                     if  (!firstName.value ||
@@ -97,29 +99,80 @@
                         !city.value ||
                         !email.value){
                         console.log("ça marche pas :");
+                    }else{
+                        console.log(command);
+                        
+                        const options = {
+                            method: "POST",
+                            body: JSON.stringify(command),
+                            headers: { "Content-Type": "application/json" },
+                        };
+    
+                        // Envoi données pour recevoir l'order id
+                        function fetchPokemonBas(){
+    
+                            fetch("http://localhost:3000/api/teddies/order", options)
+                                    .then(response => response.json())
+                                    .then((teste) => {
+                                        console.log(teste);
+                        
+                                        // Regroupement des données pour les envoyer sur la page suivante
+                                        // Je dois regrouper l'order id et le prix total dans un objet pour le mettre dans le local storage. Je pourrai ensuite le récupérer à la page suivante
+                                        let infosPageConfirmation = {
+                                            orderId: teste.orderId,
+                                            prixTotal: prixTotal
+                                        }
+                                        console.log(infosPageConfirmation);
+    
+    
+                                        // Création de la variable qu'on va utiliser pour rentrer nos données dans le local storage
+                                        let commandeLocalStorage = [];
+                                        console.log(commandeLocalStorage);
+                                        commandeLocalStorage.push(infosPageConfirmation);
+                                        console.log(commandeLocalStorage);
+                                        localStorage.setItem("command", JSON.stringify(commandeLocalStorage));
+                                        console.log(commandeLocalStorage);
+                                        // 
+    
+                                        // Je supprime le local storage
+                                        localStorage.removeItem("produit");
+    
+                                    })
+                                }
+                            fetchPokemonBas();
+                            
+                            // test de changer la page si else
+                            window.location.href='Confirmation.html'
                     }
 
-                    const options = {
-                        method: "POST",
-                        body: JSON.stringify(command),
-                        headers: { "Content-Type": "application/json" },
-                    };
                     
-                    fetch("http://localhost:3000/api/teddies/order", options)
-                        .then((response) => response.json())
-                        .then((data) => {
-                            console.log(data)
-                            localStorage.setItem("orderId", data.orderId);
-                      
-                    
-                    })
-                })
-                
 
-                       
+              
                         
+                                    
 
-                    
+
+
+
+
+
+
+
+                })    
+
+                }else{
+                    let selectSectionPanier = document.querySelector("section.sectionPanier");
+                    let createDivPanierVide = document.createElement("div");
+                    createDivPanierVide.classList.add("panierVide");
+
+                    selectSectionPanier.appendChild(createDivPanierVide);
+                    let selectPanierVide = document.querySelector("div.panierVide");
+                    selectPanierVide.textContent = "Votre panier est vide !"
+
+                    // Je retire la couleur de la div.prixTotal
+                    let selectDivPrixTotal = document.getElementById("prixTotal");
+                    selectDivPrixTotal.style.backgroundColor = "#f2e9f1";
+                }
                 
 
                 

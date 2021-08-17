@@ -238,3 +238,32 @@ label{
     font-size: 16px;
     background-color: #efa452;
 }
+.panierVide{
+    font-weight: bold;
+    font-size: 26px;
+}
+/* Page confirmation */
+
+.sectionConfirmation{
+    border: solid black 1px;
+    border-radius: 5px;
+    width: 50%;
+    position: relative;
+    left: 25%;
+    padding: 30px 0 30px 0;
+}
+.orderId{
+    text-align: center;
+    font-weight: bold;
+    margin-bottom: 10px;
+}
+.orderId > b{
+    color: orange;
+}
+.confirmationPrixTotal{
+    text-align: center;
+    font-weight: bold;
+}
+.confirmationPrixTotal > b{
+    color: orange;
+}
