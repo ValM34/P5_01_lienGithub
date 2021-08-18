@@ -171,7 +171,7 @@
 
                     // Je retire la couleur de la div.prixTotal
                     let selectDivPrixTotal = document.getElementById("prixTotal");
-                    selectDivPrixTotal.style.backgroundColor = "#f2e9f1";
+                    selectDivPrixTotal.style.backgroundColor = "#eedeec";
                 }
                 
 
