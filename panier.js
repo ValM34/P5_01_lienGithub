@@ -93,11 +93,13 @@
                 
 
                     // Vérification du formulaire
+                    // Ajouter le codee postal dans la vérif
                     if  (!firstName.value ||
                         !lastName.value ||
                         !address.value ||
                         !city.value ||
-                        !email.valid){
+                        !codePostal.value ||
+                        !email.value){
                         console.log("ça marche pas :");
                     }else{
                         console.log(command);
@@ -141,7 +143,7 @@
                             fetchPokemonBas();
                             
                             // test de changer la page si else
-                            // window.location.href='Confirmation.html';   --> A supprimer si le formulaire fonctionne correctement sans.
+                            // window.location.href='Confirmation.html';
                     }
 
                     
