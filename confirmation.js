@@ -1,3 +1,6 @@
+// Je supprime le local storage
+localStorage.removeItem("produit");
+
 let infosCommande = JSON.parse(localStorage.getItem("command"));
 console.log(infosCommande);
 

@@ -97,11 +97,11 @@
                         !lastName.value ||
                         !address.value ||
                         !city.value ||
-                        !email.value){
+                        !email.valid){
                         console.log("ça marche pas :");
                     }else{
                         console.log(command);
-                        
+                        console.log("ça marche mais pas vraiment");
                         const options = {
                             method: "POST",
                             body: JSON.stringify(command),
@@ -109,7 +109,7 @@
                         };
     
                         // Envoi données pour recevoir l'order id
-                        function fetchPokemonBas(){
+                        async function fetchPokemonBas(){
     
                             fetch("http://localhost:3000/api/teddies/order", options)
                                     .then(response => response.json())
@@ -134,15 +134,14 @@
                                         console.log(commandeLocalStorage);
                                         // 
     
-                                        // Je supprime le local storage
-                                        localStorage.removeItem("produit");
+                                        
     
                                     })
                                 }
                             fetchPokemonBas();
                             
                             // test de changer la page si else
-                            window.location.href='Confirmation.html'
+                            // window.location.href='Confirmation.html';   --> A supprimer si le formulaire fonctionne correctement sans.
                     }
 
                     

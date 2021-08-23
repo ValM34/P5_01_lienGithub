@@ -1,3 +1,21 @@
+// mixins (pour le responsive)
+
+@mixin desktop {
+    @media screen and (min-width: 1025px) {
+        @content;
+    }
+}
+@mixin tablette {
+    @media screen and (max-width: 1024px) and (min-width: 601px) {
+        @content;
+    }
+}
+@mixin mobile {
+    @media screen and (max-width: 600px) {
+        @content;
+    }
+}
+
 *{
     font-family:Arial, Helvetica, sans-serif;
     color: #251623;
@@ -14,10 +32,20 @@ h1{
 }
 
 .bandeau{
-    display: flex;
-    justify-content: space-around;
-    margin: none;
     background-color: #f2e9f1;
+    @include desktop{
+        display: flex;
+        justify-content: space-around;
+    }
+    @include tablette{
+        display: flex;
+        justify-content: space-around;
+    }
+    @include mobile{
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+    }
 }
 
 .logo{
@@ -33,6 +61,8 @@ div.bandeau > a{
     text-decoration: none;
     color: #251623;
 }
+
+// Page d'accueil
 
 .image {
     background-size: cover;
@@ -60,8 +90,13 @@ img {
 
 .test{
     display: grid;
-    grid-template-columns: 30% 30% 30%;
     justify-content: center;
+    @include desktop{
+        grid-template-columns: 30% 30% 30%;
+    }
+    @include tablette{
+        grid-template-columns: 45% 45%;
+    }
 }
 
 .test > a{
@@ -69,8 +104,10 @@ img {
     padding: 20px;
     border-radius: 10px;
     box-shadow: 0px 0px 5px #efa14d;
-    height: 400px;
     background-color: #e08525;
+    @include desktop{
+        height: 420px;
+    }
 }
 .test > a:hover{
     box-shadow: 0px 0px 10px #efa14d;
@@ -145,7 +182,7 @@ div.quantity > button{
     margin: 5px 0 5px 0;
     font-weight: bold;
     font-size: 22px;
-
+    cursor: pointer;
     width: 15%;
 }
 div.quantity > input{
@@ -164,6 +201,10 @@ button.ButtonValider{
     background-color: #251623;
     color: #e08525;
     font-size: 25px;
+}
+button.ButtonValider:hover{
+    background-color: #20111e;
+    cursor: pointer;
 }
 
 /* Page panier */
@@ -267,3 +308,4 @@ label{
 .confirmationPrixTotal > b{
     color: orange;
 }
+

@@ -14,10 +14,26 @@ h1 {
 }
 
 .bandeau {
-  display: flex;
-  justify-content: space-around;
-  margin: none;
   background-color: #f2e9f1;
+}
+@media screen and (min-width: 1025px) {
+  .bandeau {
+    display: flex;
+    justify-content: space-around;
+  }
+}
+@media screen and (max-width: 1024px) and (min-width: 601px) {
+  .bandeau {
+    display: flex;
+    justify-content: space-around;
+  }
+}
+@media screen and (max-width: 600px) {
+  .bandeau {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+  }
 }
 
 .logo {
@@ -60,8 +76,17 @@ img {
 
 .test {
   display: grid;
-  grid-template-columns: 30% 30% 30%;
   justify-content: center;
+}
+@media screen and (min-width: 1025px) {
+  .test {
+    grid-template-columns: 30% 30% 30%;
+  }
+}
+@media screen and (max-width: 1024px) and (min-width: 601px) {
+  .test {
+    grid-template-columns: 45% 45%;
+  }
 }
 
 .test > a {
@@ -69,8 +94,12 @@ img {
   padding: 20px;
   border-radius: 10px;
   box-shadow: 0px 0px 5px #efa14d;
-  height: 400px;
   background-color: #e08525;
+}
+@media screen and (min-width: 1025px) {
+  .test > a {
+    height: 420px;
+  }
 }
 
 .test > a:hover {
@@ -147,6 +176,7 @@ div.quantity > button {
   margin: 5px 0 5px 0;
   font-weight: bold;
   font-size: 22px;
+  cursor: pointer;
   width: 15%;
 }
 
@@ -166,6 +196,11 @@ button.ButtonValider {
   background-color: #251623;
   color: #e08525;
   font-size: 25px;
+}
+
+button.ButtonValider:hover {
+  background-color: #20111e;
+  cursor: pointer;
 }
 
 /* Page panier */
