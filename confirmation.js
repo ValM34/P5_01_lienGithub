@@ -1,6 +1,3 @@
-// Je supprime le local storage
-localStorage.removeItem("produit");
-
 let infosCommande = JSON.parse(localStorage.getItem("command"));
 console.log(infosCommande);
 
@@ -17,3 +14,6 @@ selectSectionCommande.appendChild(createDivPrixTotal);
 createDivPrixTotal.classList.add("confirmationPrixTotal");
 let selectDivPrixTotal = document.querySelector("div.confirmationPrixTotal");
 selectDivPrixTotal.innerHTML = `Prix total : <b>${infosCommande[0].prixTotal}€</b>`;
+
+// Je supprime le local storage pour les prochaines commandes
+localStorage.clear();
