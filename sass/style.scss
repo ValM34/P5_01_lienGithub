@@ -60,6 +60,9 @@ div.bandeau > a{
     padding-right: 20px;
     text-decoration: none;
     color: #251623;
+    @include mobile{
+        padding-right: 0px;
+    }
 }
 
 // Page d'accueil
@@ -223,10 +226,17 @@ button.ButtonValider:hover{
     display: grid;
     grid-template-columns: 25% 25% 25% 25%;
     justify-content: space-between;
+    @include mobile{
+        display: block;
+        height: 100%;
+    }
 }
 .divProduitPanier > div{
     display:flex;
     align-items: center;
+    @include mobile{
+        padding: 5px;
+    }
 }
 .sectionPanier > div{
     padding-left: 5px;
@@ -251,11 +261,22 @@ form > div > div{
     flex-direction: column;
     align-items: center;
     width: 600px;
+    @include mobile{
+        width: 100%;
+    }
 }
 form > div{
     display: flex;
     justify-content: center;
     width: 90%;
+    @include mobile{
+        flex-direction: column;
+    }
+}
+form > h2{
+    @include mobile{
+        text-align: center;
+    }
 }
 input{
     padding: 10px;
@@ -292,6 +313,10 @@ label{
     position: relative;
     left: 25%;
     padding: 30px 0 30px 0;
+    @include mobile{
+        width: 90%;
+        left: 5%;
+    }
 }
 .orderId{
     text-align: center;
@@ -308,4 +333,6 @@ label{
 .confirmationPrixTotal > b{
     color: orange;
 }
-
+.h1Confirmation{
+    text-align: center;
+}

@@ -49,6 +49,11 @@ div.bandeau > a {
   text-decoration: none;
   color: #251623;
 }
+@media screen and (max-width: 600px) {
+  div.bandeau > a {
+    padding-right: 0px;
+  }
+}
 
 .image {
   background-size: cover;
@@ -221,10 +226,21 @@ button.ButtonValider:hover {
   grid-template-columns: 25% 25% 25% 25%;
   justify-content: space-between;
 }
+@media screen and (max-width: 600px) {
+  .divProduitPanier {
+    display: block;
+    height: 100%;
+  }
+}
 
 .divProduitPanier > div {
   display: flex;
   align-items: center;
+}
+@media screen and (max-width: 600px) {
+  .divProduitPanier > div {
+    padding: 5px;
+  }
 }
 
 .sectionPanier > div {
@@ -254,11 +270,27 @@ form > div > div {
   align-items: center;
   width: 600px;
 }
+@media screen and (max-width: 600px) {
+  form > div > div {
+    width: 100%;
+  }
+}
 
 form > div {
   display: flex;
   justify-content: center;
   width: 90%;
+}
+@media screen and (max-width: 600px) {
+  form > div {
+    flex-direction: column;
+  }
+}
+
+@media screen and (max-width: 600px) {
+  form > h2 {
+    text-align: center;
+  }
 }
 
 input {
@@ -300,6 +332,12 @@ label {
   left: 25%;
   padding: 30px 0 30px 0;
 }
+@media screen and (max-width: 600px) {
+  .sectionConfirmation {
+    width: 90%;
+    left: 5%;
+  }
+}
 
 .orderId {
   text-align: center;
@@ -318,6 +356,10 @@ label {
 
 .confirmationPrixTotal > b {
   color: orange;
+}
+
+.h1Confirmation {
+  text-align: center;
 }
 
 /*# sourceMappingURL=style.css.map */
