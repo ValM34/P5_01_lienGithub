@@ -8,13 +8,13 @@ function fetchOursons(){
                         for (let i = 0; i < allOursons.length; i++){
                                 const newElt = document.createElement("a");
                                 newElt.title = "Voir le nounours";  
-                                newElt.href = `http://127.0.0.1:5500/product.html?id=${allOursons[i]._id}`;
+                                newElt.href = `http://127.0.0.1:5500/HTML/product.html?id=${allOursons[i]._id}`;
                                 let elt = document.querySelector("div.test");
                                 elt.appendChild(newElt);
 
                                 let test4 = document.querySelector(`div.test > a:nth-child(${i + 1})`)
                                 test4.classList.add(`oursNumber${i}`);
-                        // Fin création d'une balise <a> pour chaque ourson
+                                // Fin création d'une balise <a> pour chaque ourson
                                 
                                 // Intégration du contenu (nom, image, description, prix) pour chaque ourson
                                 let selectOurs = document.querySelector(`a.oursNumber${i}`);
