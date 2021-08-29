@@ -14,25 +14,26 @@
     </div>
     <h1>Votre panier</h1>
     
-    <form action="confirmation.html">
+    <form>
         <h2 class="h2Formulaire">Veuillez renseigner vos coordonnées</h2>
         <div>
             <div>
             <label for="lastName">Nom :</label><input required type="text" name="pseudo" id="lastName" placeholder="Entrez votre nom"/>
             <label for="firstName">Prénom :</label><input required type="text" name="pseudo" id="firstName" placeholder="Entrez votre prénom"/>
-            <label for="address">Adresse :</label><input required type="text" name="pseudo" id="email" placeholder="Entrez votre adresse"/>
+            <label for="address">Adresse :</label><input required type="text" name="pseudo" id="address" placeholder="Entrez votre adresse"/>
             </div>
 
             <div>
-            <label for="email">Adresse email :</label><input required type="email" name="pseudo" id="address" placeholder="Entrez votre adresse email"/>
+            <label for="email">Adresse email :</label><input required type="email" name="pseudo" id="email" placeholder="Entrez votre adresse email"/>
             <label for="codePostal">code postal :</label><input required type="number" name="pseudo" id="codePostal" placeholder="Entrez votre code postal"/>
             <label for="city">Ville :</label><input required type="text" name="pseudo" id="city" placeholder="Entrez le nom de votre ville"/>
             </div>
         </div>
-        <button id="submit">Valider</button>
+        
     </form>
-
-
+    <div class="divBoutonValider">
+        <button id="submit">Valider</button>
+    </div>
     <section class="sectionPanier">
         
     </section>

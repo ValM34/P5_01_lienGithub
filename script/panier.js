@@ -49,6 +49,7 @@
                     let address = document.getElementById("address");
                     let city = document.getElementById("city");
                     let email = document.getElementById("email");
+                    let codePostal = document.getElementById("codePostal");
 
                     // Création du tableau dans lequel on va mettre l'id de chaque produit, qu'on enverra ensuite au backend
                     let products = [];
@@ -77,16 +78,25 @@
                         products: products
                         }
                         
+                        // Déclaration des regexp
+                        let regexEmail = /^(([^<>()\[\]\\.,;:\s@"]+(\.[^<>()\[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/;
+                        let regexCodePostal = /[0-9]/;
+                        let regexAddress = /\d([ ])(\w+[ ]?)+/;
+
 
                         // Vérification du formulaire pour savoir si on envoie ou non la commande dans le local storage
+                        
                         if  (!firstName.value ||
                             !lastName.value ||
-                            !address.value ||
+                            !regexAddress.test(address.value) ||
                             !city.value ||
-                            !codePostal.value ||
-                            !email.value){
+                            !regexCodePostal.test(codePostal.value) ||
+                            !regexEmail.test(email.value)){
                             console.log("Il manque des valeurs à renseigner");
-                            console.log(command);
+                            let selectH2Formulaire = document.querySelector("h2.h2Formulaire");
+                            selectH2Formulaire.innerHTML = "Veuillez renseigner vos données correctement";
+                            selectH2Formulaire.style.color = "red";
+
                         }else{
                             const options = {
                                 method: "POST",
@@ -116,8 +126,10 @@
                                             commandeLocalStorage.push(infosPageConfirmation);
                                             localStorage.setItem("command", JSON.stringify(commandeLocalStorage));
                                             // 
-
+                                           
                                             
+                                            // Lien vers la page confirmation
+                                            document.location.href = "confirmation.html";
 
                                         })
                                     }
@@ -138,6 +150,8 @@
                     let selectPanierVide = document.querySelector("div.panierVide");
                     let removeForm = document.querySelector("form");
                     removeForm.remove();
+                    let removeValider = document.querySelector("div.divBoutonValider");
+                    removeValider.remove();
                     selectPanierVide.textContent = "Votre panier est vide";
                     selectPanierVide.style.color = "red";
 

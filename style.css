@@ -323,6 +323,11 @@ label {
   font-size: 26px;
 }
 
+.divBoutonValider {
+  display: flex;
+  justify-content: center;
+}
+
 /* Page confirmation */
 .sectionConfirmation {
   border: solid black 1px;
