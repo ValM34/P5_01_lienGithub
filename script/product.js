@@ -40,7 +40,6 @@ function fetchOursons(){
                     let createDiv = document.createElement(`option`);
                     selectForm.appendChild(createDiv);
                     let selectDiv = document.querySelector(`select > option:nth-child(${o + 1})`);
-                    selectDiv.classList.add(`c${o}`);
                     selectDiv.textContent= `${Oursons.colors[o]}`;
                 }
 
