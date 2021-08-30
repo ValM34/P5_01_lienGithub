@@ -8,7 +8,7 @@ function fetchOursons(){
                         for (let i = 0; i < allOursons.length; i++){
                                 const newElt = document.createElement("a");
                                 newElt.title = "Voir le nounours";  
-                                newElt.href = `http://127.0.0.1:5500/product.html?id=${allOursons[i]._id}`;
+                                newElt.href = `https://valm34.github.io/P5_01_lienGithub/product.html?id=${allOursons[i]._id}`;
                                 let elt = document.querySelector("div.test");
                                 elt.appendChild(newElt);
 
